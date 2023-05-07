@@ -1,31 +1,45 @@
-
-
-// lista de contactos inicial
 const listaContactos = [
-  { nombreCompleto: "Juan Perez" },
-  { nombreCompleto: "Maria Rodriguez" },
-  { nombreCompleto: "Pedro Gomez" }
+	{
+		id: "132123",
+		nombre: "Juan",
+		apellido: "Perez",
+		telefono: "342-342-2932",
+		ciudad: "Yondó",
+		direccion: "crr45 X",
+	},
+	{
+		id: "31312313",
+		nombre: "Maria",
+		apellido: "Rodriguez",
+		telefono: "342-452-7664",
+		ciudad: "Cisneros",
+		direccion: "crr45 a",
+	},
+	{
+		id: "33431331",
+		nombre: "Pedro",
+		apellido: "Gomez",
+		telefono: "364-564-8909",
+		ciudad: "Medellín",
+		direccion: "crr 56 b",
+	},
 ];
 
-// Función para añadir un nuevo contacto a la lista
-function agregarContacto(nombreCompleto) {
-  listaContactos.push({ nombreCompleto });
+function agregarContacto(id, nombre, apellido, telefono, ciudad, direccion) {
+	listaContactos.push({ id, nombre, apellido, telefono, ciudad, direccion });
 }
-agregarContacto("Santiago Guerra");
+agregarContacto("199299092", "Santiago", "Pérez", "342-943-9321", "Medellín", "crr 48p");
 
-// Función para borrar un contacto existente de la lista
-function borrarContacto(nombreCompleto) {
-  const indice = listaContactos.findIndex(contacto =>
-    contacto.nombreCompleto === nombreCompleto
-  );
-  if (indice !== -1) {
-    listaContactos.splice(indice, 1);
-  }
+function borrarContacto(posicion) {
+	listaContactos.splice(posicion, 1);
 }
-borrarContacto("Juan Perez");
+borrarContacto(1);
 
-// Función para imprimir en consola los contactos presentes en la lista
 function mostrarContactos() {
-  listaContactos.forEach(contacto => console.log(contacto.nombreCompleto));
+	listaContactos.forEach((contacto) =>
+		console.log(
+			`Id: ${contacto.id} Nombre: ${contacto.nombre} - Apellido: ${contacto.apellido} - Teléfono: ${contacto.telefono} - Ciudad: ${contacto.ciudad} - Dirección: ${contacto.direccion}`
+		)
+	);
 }
 mostrarContactos();
